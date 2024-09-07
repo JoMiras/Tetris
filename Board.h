@@ -8,4 +8,18 @@ const int boardHeight = 20;
 const char emptyCell - '.';
 const char filledCell = '#';
 
-// Now I'm tired I wanna continue later lol
+class Board {
+    public: 
+    Board(); 
+
+    bool isCollision(int x, int y, const std::vector<int>& shape) const;
+    void placeTetromino(int x, int y, const std::vector<int>& shape);
+    void clearLines();
+    void draw() const;
+}
+
+private:
+std::vector<std::vector<char>> board;
+};
+
+#endif
