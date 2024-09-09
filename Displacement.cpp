@@ -1,66 +1,58 @@
-// How the piece spawns when it's first spawned. 
+#include "Displacement.h"
 
-int mPiecesInitialPosition [7 /*kind*/ ]
- [4 /*rotation*/] 
-[2 /*position*/] =
-
+int mPiecesInitialPosition[7][4][2] = 
 {
-    /*Square*/
-
     {
+        [-2,-3],
         {-2,-3},
         {-2,-3},
-        {-2,-3},
-        {-2,-3}
+        {-2,-3} // Square block
 
     },
-
-    /* I */
 
     {
         {-2,-2},
         {-2,-3},
         {-2,-2},
-        {-2,-3}
+        {-2,-3} // I block
     },
 
-    /* L */
     {
-        {-2.-3},
-        {-2.-3},
-        {-2.-3},
-        {-2.-2}
+        {-2,-3},
+        {-2,-3},
+        {-2,-3},
+        {-2,-2} // L block
     },
-
-    /* Reverse L Block */
-
     {
         {-2,-3},
         {-2,-2},
         {-2,-3},
-        {-2,-3}
+        {-2,-2} // Reverse L block
     },
 
-    /* N block */
     {
         {-2,-3},
         {-2,-3},
         {-2,-3},
-        {-2,-2}
+        {-2,-2} // Squiggly block
     },
 
-    /* Reverse N block */
-    {
-        {-2,-3},
-        {-2,-3},
-        {-2,-3},
-        {-2,-2}
-    },
-    /* T Block */
-    {
-        {-2,-3},
-        {-2,-3},
-        {-2,-3},
-        {-2,-2}
-    },
-};
+    
+        {
+            {-2,-3},
+            {-2,-3},
+            {-2,-3},
+            {-2,-2} // Reverse squiggly
+        },
+        
+        {
+            {-2,-3},
+            {-2,-3},
+            {-2,-3},
+            {-2,-2} // T block
+        }
+    };
+
+    std::pair<int, int> getInitialPosition(int pieceType, int rotation) {
+        return { mPiecesInitialPosition[pieceType][rotation][0], mPiecesInitialPosition[pieceType][rotation][1]};
+    }
